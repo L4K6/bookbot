@@ -11,5 +11,3 @@ def char_counter(text):
         else:
             character_dict[l_letter] += 1
     return character_dict
-
-print(char_counter(text))
