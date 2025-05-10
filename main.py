@@ -9,8 +9,9 @@ def get_book_text(path_to_file):
         file_content = f.read()
         return file_content
 
-def get_word_count(text):
-    words = text.split()
-    return len(words)
+from stats import get_word_count
+
+from stats import char_counter
+
 
 main()
