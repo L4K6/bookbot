@@ -2,10 +2,14 @@ from stats import num_of_words
 from stats import count_characters
 from stats import sort_dict
 from stats import create_alphabetic_dict
+import sys
 
 def main():
-    book_path = "./books/frankenstein.txt"
-    
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
+
     text = get_book_text(book_path)
     num_words = num_of_words(text)
 
@@ -28,11 +32,11 @@ Found {num_words} total words
         print(f"{item["char"]}: {item["num"]}")
     print("============= END ===============")
 
-
-
 def get_book_text(filepath):
-    with open(filepath) as f:
-        return f.read()
-
-
+    try:
+        with open(filepath, "r", encoding="utf8") as f:
+            return f.read()
+    except Exception:
+        print("error")
+        sys.exit(1)
 main()
